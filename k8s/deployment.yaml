@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-eComSite-deployment
+  labels:
+    app: hello-eComSite
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-eComSite
+  template:
+    metadata:
+      labels:
+        app: hello-eComSite
+    spec:
+      containers:
+      - name: hello-eComSite
+        image: vmadhesw123/hello-eComSite-app:latest
+        ports:
+        - containerPort: 5000
